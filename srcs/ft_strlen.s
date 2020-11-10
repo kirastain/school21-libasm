@@ -2,16 +2,16 @@ section .text
     global ft_strlen
 
 ft_strlen:
-    xor rax, rax                ; int i = 0
-    cmp rdi, 0                  ; char *str == NULL
-    je exit                     ; if (char *str == NULL) => return (NULL)
-    jmp loop                    ; jump to loop
+    xor rax, rax                
+    cmp rdi, 0                  
+    je exit                     ; if str == NULL exit
+    jmp loop                    
 
 loop:
     cmp BYTE [rdi + rax], 0     ; if (*str == '\0')
-    je exit                     ; if (!str) return (i)
+    je exit                     ;  return (i)
     inc rax                     ; i++
-    jmp loop                    ; jump to loop
+    jmp loop                    
 
 exit:
     ret                         ; return (i)
